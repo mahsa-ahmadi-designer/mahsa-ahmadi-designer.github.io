@@ -25,34 +25,37 @@ nav a:hover{color:var(--accent)}
 .section-head{display:grid;grid-template-columns:1fr 390px;gap:70px;align-items:end;margin-bottom:52px}
 .section-head h2,.about h2,.background h2{font-size:clamp(34px,3.6vw,50px);line-height:1.1;font-weight:600;letter-spacing:-.04em;margin:0}
 .section-head>p{color:var(--muted);margin:0 0 5px}
-.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-.project-link{display:block;height:100%}
-.project-link.featured-link{grid-column:1/-1;width:100%}
-.project{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-.project.featured{width:100%;display:flex;flex-direction:column}
-.project-link:hover .project,.project:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(21,45,58,.08);border-color:#c8d5da}
-/* Each card's box takes the exact shape of its own cover, so the image fills
-   it edge to edge: no letterbox band, and no crop either, because the box and
-   the image have the same ratio. */
-.project-visual{aspect-ratio:var(--cover-ar,16/10);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#edf1f2}
-.project-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-.project-link:hover .project-visual img{transform:scale(1.025)}
+/* ── Work: an editorial stack ──────────────────────────────────────────
+   One project per row, full width. Each cover keeps its own natural ratio,
+   so nothing is cropped, letterboxed or misaligned — with a single project
+   per row there is nothing for it to line up against. */
+.project-grid{display:flex;flex-direction:column;gap:104px}
+.project-link{display:block}
+.project-link.featured-link{width:100%}
+.project{background:none;border:0;border-radius:0;overflow:visible;display:block;height:auto;transition:none}
+.project.featured{display:block;width:100%}
+.project-link:hover .project,.project:hover{transform:none;box-shadow:none;border-color:transparent}
+.project-visual{aspect-ratio:var(--cover-ar,16/10);display:block;overflow:hidden;border-radius:20px;background:#edf1f2}
+.project-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.project-link:hover .project-visual img{transform:scale(1.03)}
 /* Ratios are each cover's real pixel dimensions. */
 .pv-wanderhon{--cover-ar:1800/1124}
 .pv-harmonyhome{--cover-ar:1800/1079}
 .pv-artwise{--cover-ar:1800/859}
 .pv-museum{--cover-ar:1800/1120}
 .pv-ohdeer{--cover-ar:1800/1013}
-.featured .project-body{padding:52px;justify-content:center}
-.featured .project-body h3{font-size:38px}
+/* Meta in a narrow left column, everything else in a wider right one. */
+.project-body{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0 56px;padding:36px 2px 0;align-items:start}
+.project-body>.project-number{grid-column:1;grid-row:1;margin:0;font-size:11px;font-weight:700;letter-spacing:.12em;line-height:1.7;color:var(--accent)}
+.project-body>*:not(.project-number){grid-column:2}
+.project-body h3{font-size:clamp(30px,3vw,40px);line-height:1.12;font-weight:600;margin:0 0 14px;letter-spacing:-.04em;transition:color .2s}
+.project-link:hover h3{color:var(--accent)}
+.project-body .project-lead{font-size:20px;line-height:1.45;color:var(--ink);margin:0 0 14px;max-width:760px}
+.project-body p{color:var(--muted);max-width:720px;margin:0;font-size:16px}
+.featured .project-body h3{font-size:clamp(36px,3.8vw,50px)}
 .featured .project-body p{font-size:16px}
-.featured .project-body .project-lead{font-size:20px}
-.project-body{padding:32px;display:flex;flex-direction:column;flex:1}
-.project-number{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:15px}
-.project-body h3{font-size:29px;line-height:1.15;font-weight:600;margin:0 0 13px;letter-spacing:-.035em}
-.project-body p{color:var(--muted);max-width:620px;margin:0;font-size:15px}
-.project-body .project-lead{font-size:17px;color:var(--ink);margin-bottom:12px}
-.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:27px}
+.featured .project-body .project-lead{font-size:22px}
+.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:24px}
 .project-tags span,.skills span{font-size:11px;font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fff}
 .statement{background:var(--navy);color:#fff;padding:110px 0;position:relative}
 .statement:before{content:"";position:absolute;top:-1px;left:0;right:0;height:46px;background:var(--paper);clip-path:polygon(0 0,100% 0,100% 12%,0 100%)}
@@ -105,13 +108,13 @@ nav a:not(.nav-cta){display:none}
 .section{padding:80px 0}
 .section-head{grid-template-columns:1fr;gap:25px;margin-bottom:42px}
 .section-head h2,.about h2,.background h2{font-size:36px}
-.project-grid{grid-template-columns:1fr}
-.project-link.featured-link{grid-column:auto}
-.featured .project-body{padding:30px}
-.featured .project-body h3{font-size:29px}
-.featured .project-body .project-lead{font-size:17px}
-.project-visual{height:auto}
-.project-body{padding:30px}
+.project-grid{gap:64px}
+.project-visual{height:auto;border-radius:14px}
+.project-body{grid-template-columns:1fr;gap:0;padding:22px 0 0}
+.project-body>.project-number{grid-row:auto;margin-bottom:12px}
+.project-body>*:not(.project-number){grid-column:1}
+.project-body .project-lead,.featured .project-body .project-lead{font-size:18px}
+.featured .project-body h3{font-size:clamp(28px,7vw,34px)}
 .statement{padding:100px 0 80px}
 .process-steps{grid-template-columns:1fr 1fr;gap:14px 20px}
 .process-steps span:not(:last-child):after{display:none}

@@ -31,8 +31,6 @@ nav a:hover{color:var(--accent)}
 .project{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
 .project.featured{width:100%;display:grid;grid-template-columns:1.15fr .85fr;min-height:500px}
 .project-link:hover .project,.project:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(21,45,58,.08);border-color:#c8d5da}
-/* Project cards: the covers carry their own tagline text, so they must never
-   be cropped. The box holds a steady 16:10 and the image sits inside it whole. */
 .project-visual{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#edf1f2;padding:16px}
 .project-visual img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
 .project-link:hover .project-visual img{transform:scale(1.025)}
@@ -182,26 +180,15 @@ footer{gap:12px;flex-direction:column}
 .case-banner .match-card{transform:scale(1.15)}
 
 .case-banner .ar-scene{width:min(620px,80%);height:330px}
-/* Case-study imagery.
-   Content images are never cropped and never forced to a shared height:
-   the source material runs from ar 0.41 (tall phone screens) to ar 4.38
-   (a wide sitemap), so any fixed height either crops a diagram or
-   letterboxes it inside a mostly-empty box. Width is the only constraint;
-   height follows the image. Tall images are reined in by max-width. */
-.case-banner.image-banner{display:block;min-height:0;background:transparent;overflow:visible}
-.case-banner.image-banner img{display:block;width:100%;height:auto;border-radius:20px}
-.case-figure{margin:40px 0}
-.case-figure img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
+.case-banner.image-banner{display:block;min-height:0;background:transparent;overflow:hidden}
+.case-banner.image-banner img{display:block;width:100%;max-height:680px;object-fit:cover;border-radius:20px}
+.case-figure{margin:36px 0}
+.case-figure img{display:block;width:100%;max-height:720px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:16px}
 .case-figure figcaption,.case-gallery figcaption,.compare figcaption{margin-top:10px;color:var(--muted);font-size:13px}
-.case-gallery,.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:40px 0;align-items:start}
+.case-gallery,.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:36px 0}
 .case-gallery.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .case-gallery figure,.compare figure{margin:0}
-.case-gallery img,.compare img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
-/* Width modifiers, usable on .case-figure, .case-gallery or .compare.
-   .portrait  — upright screens, and small sources that would upscale and blur.
-   .tall      — very tall phone captures (ar < 0.5) that would otherwise tower. */
-.portrait img{max-width:420px;margin-inline:auto}
-.tall img{max-width:300px;margin-inline:auto}
+.case-gallery img,.compare img{display:block;width:100%;height:100%;max-height:580px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:16px}
 
 .case-section{padding:80px 0;border-bottom:1px solid var(--line)}
 
@@ -229,6 +216,27 @@ footer{gap:12px;flex-direction:column}
 
 .result p{color:#cbd7dc;font-size:17px;max-width:760px;margin:0}
 
+.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:34px 0}
+.detail-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}
+.detail-card h3{margin:0 0 12px}
+.detail-card p{color:var(--muted);margin:0}
+.detail-card .eyebrow{color:var(--accent);margin-bottom:12px}
+.case-list{max-width:800px;margin:18px 0 0;padding-left:22px;color:var(--muted);font-size:17px}
+.case-list li{padding:4px 0}
+.case-list strong{color:var(--ink)}
+.compact-list{font-size:15px;margin-top:8px}
+.video-callout{display:grid;grid-template-columns:1fr auto;gap:45px;align-items:center;background:var(--accent-soft);border-radius:18px;padding:38px;margin-top:42px}
+.video-callout h3{margin:0 0 8px}
+.video-callout p{color:var(--muted);margin:0;max-width:650px}
+.wide-button{width:190px}
+.booklet-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:30px 0 48px}
+.booklet-gallery img{display:block;width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(21,45,58,.06)}
+.numbered-next-steps{border-top:1px solid var(--line);margin-top:25px}
+.numbered-next-steps article{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--line)}
+.numbered-next-steps article>span{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.12em}
+.numbered-next-steps h3{margin:0 0 8px}
+.numbered-next-steps p{color:var(--muted);margin:0;max-width:800px}
+
 @media(max-width:700px){
 .case-facts,.case-facts.four{grid-template-columns:1fr 1fr}
 
@@ -242,6 +250,10 @@ footer{gap:12px;flex-direction:column}
 
 .result{padding:32px}
 .case-gallery,.case-gallery.three,.compare{grid-template-columns:1fr}
+.detail-grid,.video-callout{grid-template-columns:1fr}
+.video-callout{padding:28px}
+.booklet-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wide-button{width:100%}
 
 }
 

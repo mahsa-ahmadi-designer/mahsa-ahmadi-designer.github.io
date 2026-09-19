@@ -40,7 +40,14 @@
     <section class="case-section">
       <div class="research-lead"><div><p class="eyebrow">01 · UNDERSTANDING THE USER</p><h2>What makes shared living feel compatible?</h2></div><p>Semi-structured interviews with young adults revealed that compatibility is shaped by far more than location and price. Personality, lifestyle, cleanliness and daily routines all affect whether a shared home works.</p></div>
       <div class="harmony-pains"><article><span>01</span><h3>Compatibility</h3><p>Age, personality and shared interests influence whether roommate relationships feel positive.</p></article><article><span>02</span><h3>Cleanliness</h3><p>Different expectations around shared spaces are a common source of tension.</p></article><article><span>03</span><h3>Noise &amp; routines</h3><p>Conflicting study, work and sleep routines can quickly create friction.</p></article></div>
-      <div class="research-gallery"><figure><img src="assets/harmonyhome/persona.jpg" alt="HarmonyHome user persona" loading="lazy"><figcaption>User persona</figcaption></figure><figure><img src="assets/harmonyhome/empathy-map.jpg" alt="HarmonyHome empathy map" loading="lazy"><figcaption>Empathy map</figcaption></figure><figure><img src="assets/harmonyhome/journey.jpg" alt="HarmonyHome user journey map" loading="lazy"><figcaption>User journey map · evaluating the search for rooms and roommates</figcaption></figure></div>
+      <div class="research-carousel" data-research-carousel>
+        <div class="research-carousel-head"><div><span>RESEARCH ARTIFACTS</span><h3>From interviews to a shared view of the user</h3></div><div class="research-carousel-controls"><span class="research-carousel-count" aria-live="polite">1 / 3</span><button type="button" data-prev aria-label="Previous research artifact">←</button><button type="button" data-next aria-label="Next research artifact">→</button></div></div>
+        <div class="research-carousel-track" tabindex="0">
+          <figure><img src="assets/harmonyhome/persona.jpg" alt="HarmonyHome user persona" loading="lazy"><figcaption><strong>User persona</strong><span>A focused picture of goals, behaviors and shared-living needs.</span></figcaption></figure>
+          <figure><img src="assets/harmonyhome/empathy-map.jpg" alt="HarmonyHome empathy map" loading="lazy"><figcaption><strong>Empathy map</strong><span>What users think, feel, say and do while looking for a roommate.</span></figcaption></figure>
+          <figure><img src="assets/harmonyhome/journey.jpg" alt="HarmonyHome user journey map" loading="lazy"><figcaption><strong>User journey map</strong><span>Evaluating the path from starting a search to finding a compatible match.</span></figcaption></figure>
+        </div>
+      </div>
 
       <div class="landscape"><div class="landscape-head"><h3>A crowded market with a human-information gap.</h3><p>I reviewed Swedish and international housing and roommate services to understand how they support search, trust and compatibility.</p></div><div class="competitor-names"><span>Bo tillsammans</span><span>Roomi</span><span>SpareRoom</span><span>Blocket Bostad</span><span>Facebook Groups</span><span>Kombo</span></div><div class="gap-opportunity"><article><h4>Recurring gaps</h4><ul><li>Limited detail about roommates and current tenants</li><li>Little personality-based matching</li><li>Language and geographic limitations</li><li>Inconsistent mobile experiences</li></ul></article><article><h4>Design opportunities</h4><ul><li>Detailed roommate profiles</li><li>Visibility into who already lives in a home</li><li>Personality-based matching</li><li>A focused mobile experience with language support</li></ul></article></div></div>
     </section>
@@ -101,6 +108,25 @@
       harmonyTabs.forEach((item) => item.setAttribute('aria-selected', String(item === tab)));
       harmonyPanels.forEach((panel) => panel.classList.toggle('active', panel.dataset.panelContent === selected));
     }));
+    const researchCarousel = document.querySelector('[data-research-carousel]');
+    const researchTrack = researchCarousel.querySelector('.research-carousel-track');
+    const researchSlides = [...researchTrack.querySelectorAll('figure')];
+    const researchCount = researchCarousel.querySelector('.research-carousel-count');
+    const moveResearch = (direction) => researchTrack.scrollBy({ left: direction * researchTrack.clientWidth, behavior: 'smooth' });
+    researchCarousel.querySelector('[data-prev]').addEventListener('click', () => moveResearch(-1));
+    researchCarousel.querySelector('[data-next]').addEventListener('click', () => moveResearch(1));
+    const updateResearchCount = () => {
+      const trackLeft = researchTrack.getBoundingClientRect().left;
+      let active = 0;
+      let distance = Infinity;
+      researchSlides.forEach((slide, index) => {
+        const nextDistance = Math.abs(slide.getBoundingClientRect().left - trackLeft);
+        if (nextDistance < distance) { distance = nextDistance; active = index; }
+      });
+      researchCount.textContent = `${active + 1} / ${researchSlides.length}`;
+    };
+    researchTrack.addEventListener('scroll', updateResearchCount, { passive: true });
+    updateResearchCount();
   </script>
 </body>
 </html>

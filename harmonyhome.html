@@ -55,7 +55,10 @@
     <section class="case-section">
       <p class="eyebrow">02 · IDEATION</p><h2>Turning research into shared design decisions.</h2>
       <p>After defining the problem, I facilitated and participated in workshops that reframed insights as “How Might We” questions. Participants generated ideas individually, clustered them together and prioritized directions through an impact-and-feasibility lens.</p>
-      <div class="insight-scroller" aria-label="HarmonyHome key insights"><figure><img src="assets/harmonyhome/insight-1.jpg" alt="HarmonyHome key insight 1" loading="lazy"><figcaption>Key insight 01</figcaption></figure><figure><img src="assets/harmonyhome/insight-2.jpg" alt="HarmonyHome key insight 2" loading="lazy"><figcaption>Key insight 02</figcaption></figure><figure><img src="assets/harmonyhome/insight-3.jpg" alt="HarmonyHome key insight 3" loading="lazy"><figcaption>Key insight 03</figcaption></figure><figure><img src="assets/harmonyhome/insight-4.jpg" alt="HarmonyHome key insight 4" loading="lazy"><figcaption>Key insight 04</figcaption></figure></div>
+      <div class="insights-carousel" data-simple-carousel>
+        <div class="simple-carousel-head"><h3>Key insights</h3><div class="simple-carousel-controls"><span data-count aria-live="polite">1 / 4</span><button type="button" data-prev aria-label="Previous key insight">←</button><button type="button" data-next aria-label="Next key insight">→</button></div></div>
+        <div class="insight-scroller" tabindex="0" data-track aria-label="HarmonyHome key insights"><figure><img src="assets/harmonyhome/insight-1.jpg" alt="HarmonyHome key insight 1" loading="lazy"><figcaption>Key insight 01</figcaption></figure><figure><img src="assets/harmonyhome/insight-2.jpg" alt="HarmonyHome key insight 2" loading="lazy"><figcaption>Key insight 02</figcaption></figure><figure><img src="assets/harmonyhome/insight-3.jpg" alt="HarmonyHome key insight 3" loading="lazy"><figcaption>Key insight 03</figcaption></figure><figure><img src="assets/harmonyhome/insight-4.jpg" alt="HarmonyHome key insight 4" loading="lazy"><figcaption>Key insight 04</figcaption></figure></div>
+      </div>
       <div class="workshop-story"><figure><img src="assets/harmonyhome/brainwriting.jpg" alt="HarmonyHome brainwriting workshop" loading="lazy"><figcaption><strong>Brainwriting</strong><span>Generate ideas individually before group discussion.</span></figcaption></figure><figure><img src="assets/harmonyhome/clustering.jpg" alt="HarmonyHome idea clustering" loading="lazy"><figcaption><strong>Clustering</strong><span>Bring related ideas together into stronger concepts.</span></figcaption></figure><figure><img src="assets/harmonyhome/prioritization.jpg" alt="HarmonyHome prioritization matrix" loading="lazy"><figcaption><strong>Prioritization</strong><span>Balance user impact with feasibility.</span></figcaption></figure></div>
     </section>
 
@@ -63,7 +66,7 @@
       <p class="eyebrow">03 · FROM IDEAS TO INTERFACE</p><h2>Designing both sides of the match.</h2>
       <p>Prioritized ideas became paper sketches and then digital flows for creating a profile, finding a room and finding a roommate. Filters, maps, compatibility information and preference icons supported informed decisions.</p>
       <div class="sketch-stage"><img src="assets/harmonyhome/paper-sketches.jpg" alt="HarmonyHome paper sketches" loading="lazy"></div>
-      <div class="wireframe-carousel"><div class="wireframe-head"><h3>Digital wireframes</h3><span>Swipe or scroll to explore →</span></div><div class="wireframe-track" tabindex="0"><figure><img src="assets/harmonyhome/wireframe-profile.jpg" alt="HarmonyHome profile wireframes" loading="lazy"><figcaption>Creating and exploring profiles</figcaption></figure><figure><img src="assets/harmonyhome/wireframe-room.jpg" alt="HarmonyHome room-search wireframes" loading="lazy"><figcaption>Seeking a room</figcaption></figure><figure><img src="assets/harmonyhome/wireframe-roommate.jpg" alt="HarmonyHome roommate-search wireframes" loading="lazy"><figcaption>Seeking a roommate</figcaption></figure></div></div>
+      <div class="wireframe-carousel" data-simple-carousel><div class="wireframe-head"><h3>Digital wireframes</h3><div class="simple-carousel-controls"><span data-count aria-live="polite">1 / 3</span><button type="button" data-prev aria-label="Previous wireframe flow">←</button><button type="button" data-next aria-label="Next wireframe flow">→</button></div></div><div class="wireframe-track" tabindex="0" data-track><figure><img src="assets/harmonyhome/wireframe-profile.jpg" alt="HarmonyHome profile wireframes" loading="lazy"><figcaption>Creating and exploring profiles</figcaption></figure><figure><img src="assets/harmonyhome/wireframe-room.jpg" alt="HarmonyHome room-search wireframes" loading="lazy"><figcaption>Seeking a room</figcaption></figure><figure><img src="assets/harmonyhome/wireframe-roommate.jpg" alt="HarmonyHome roommate-search wireframes" loading="lazy"><figcaption>Seeking a roommate</figcaption></figure></div></div>
     </section>
 
     <section class="harmony-prototype">
@@ -127,6 +130,26 @@
     };
     researchTrack.addEventListener('scroll', updateResearchCount, { passive: true });
     updateResearchCount();
+    document.querySelectorAll('[data-simple-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('[data-track]');
+      const slides = [...track.querySelectorAll('figure')];
+      const count = carousel.querySelector('[data-count]');
+      const move = (direction) => track.scrollBy({ left: direction * track.clientWidth, behavior: 'smooth' });
+      carousel.querySelector('[data-prev]').addEventListener('click', () => move(-1));
+      carousel.querySelector('[data-next]').addEventListener('click', () => move(1));
+      const update = () => {
+        const trackLeft = track.getBoundingClientRect().left;
+        let active = 0;
+        let distance = Infinity;
+        slides.forEach((slide, index) => {
+          const nextDistance = Math.abs(slide.getBoundingClientRect().left - trackLeft);
+          if (nextDistance < distance) { distance = nextDistance; active = index; }
+        });
+        count.textContent = `${active + 1} / ${slides.length}`;
+      };
+      track.addEventListener('scroll', update, { passive: true });
+      update();
+    });
   </script>
 </body>
 </html>

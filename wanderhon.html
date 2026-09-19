@@ -1,111 +1,123 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="WanderHon — UX/UI case study by Mahsa Ahmadi">
-<title>WanderHon — Mahsa Ahmadi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="WanderHon — UX/UI case study by Mahsa Ahmadi">
+  <title>WanderHon — Mahsa Ahmadi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="wanderhon.css">
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Mahsa Ahmadi</a>
+    <nav><a href="index.html#top">Home</a><a href="index.html#work">Work</a><a href="index.html#about">About</a><a href="index.html#background">Background</a><a class="nav-cta" href="index.html#contact">Contact</a></nav>
+  </header>
 
-<header class="site-header">
-  <a class="brand" href="index.html">Mahsa Ahmadi</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#background">Background</a>
-    <a class="nav-cta" href="index.html#contact">Contact</a>
-  </nav>
-</header>
+  <main class="case wander-case">
+    <a class="back" href="index.html#work">← Back to projects</a>
+    <section class="case-hero">
+      <p class="eyebrow">PROFESSIONAL · INVOLING AB · 2025</p>
+      <h1>WanderHon</h1>
+      <p class="lead">A magical travel app where users photograph a place and Hon—a cat wizard—reveals playful, quirky and historical facts about it.</p>
+      <div class="case-facts four"><div><small>My role</small>UX/UI Design Intern</div><div><small>Duration</small>4 months</div><div><small>Platform</small>iOS · Android</div><div><small>Tools</small>Figma · Maze</div></div>
+    </section>
 
-<main class="case">
-  <a class="back" href="index.html#work">← Back to projects</a>
+    <div class="case-banner image-banner"><img src="assets/wanderhon/cover.jpg" alt="WanderHon high-fidelity mobile application screens"></div>
 
-  <section class="case-hero">
-    <p class="eyebrow">PROFESSIONAL · INVOLING AB · 2025</p>
-    <h1>WanderHon</h1>
-    <p class="lead">A mobile travel experience that uses an AI character to reveal playful facts about places around you. I worked across the product from early research and structure to tested high-fidelity design and developer handoff.</p>
-    <div class="case-facts four">
-      <div><small>Role</small>UX/UI Designer</div>
-      <div><small>Context</small>Intern → Consultant</div>
-      <div><small>Platform</small>iOS · Android</div>
-      <div><small>Tools</small>Figma · Maze</div>
+    <section class="case-section wander-overview">
+      <div class="overview-heading"><p class="eyebrow">THE OPPORTUNITY</p><h2>Make the stories behind a place feel worth discovering.</h2></div>
+      <div class="overview-copy"><p>Travelers often miss interesting stories because local information can be difficult to find, dry or disconnected from the moment of discovery.</p><p>WanderHon turns that gap into a playful experience: point the camera, capture a place and let Hon bring it to life with personality. My role was to shape the app from the initial idea into a tested high-fidelity prototype and a system ready for development.</p></div>
+    </section>
+
+    <div class="responsibility-strip" aria-label="Project responsibilities">
+      <div><span>01</span><p>Sitemap, user flows and wireframes</p></div><div><span>02</span><p>iOS and Android prototypes</p></div><div><span>03</span><p>Visual identity and Hon’s magical world</p></div><div><span>04</span><p>Usability testing and refinement</p></div><div><span>05</span><p>Design system and developer handoff</p></div>
     </div>
-  </section>
 
-  <div class="case-banner image-banner">
-    <img src="assets/wanderhon/cover.jpg" alt="WanderHon high-fidelity mobile interface">
-  </div>
+    <section class="case-section">
+      <div class="research-intro"><div><p class="eyebrow">01 · UNDERSTANDING THE USER</p><h2>Researching engagement—not just utility.</h2></div><p>The product idea came from the client. I used a competitive audit and user journey map to anticipate expectations, surface friction and understand how a character-led experience could remain simple and accessible.</p></div>
+      <div class="pain-points">
+        <article><span>01</span><h3>Lack of emotional connection</h3><p>Many digital tools deliver information in a cold, impersonal way, missing the opportunity to build warmth and curiosity.</p></article>
+        <article><span>02</span><h3>Empty moments reduce engagement</h3><p>Loading and content-fetching moments can feel passive or unclear, breaking the sense of immersion.</p></article>
+      </div>
 
-  <section class="case-section">
-    <p class="eyebrow">01 · UNDERSTANDING THE PRODUCT</p>
-    <h2>Turning location discovery into something playful and easy to explore.</h2>
-    <p>WanderHon was designed around a simple idea: instead of searching for information about a place, users could discover nearby stories and facts through Hon, an AI character. My work began by understanding comparable interaction patterns and defining how the experience should move from onboarding into discovery, saving and returning to places.</p>
-    <h3>Research and structure</h3>
-    <p>I reviewed products including Google Lens, Pokémon GO and Duolingo, mapped the user journey and created the product sitemap. The structure covered onboarding, authentication, Home, Magic Map, Saved Trips and Profile, followed by user flows and mid-fidelity wireframes.</p>
-    <figure class="case-figure"><img src="assets/wanderhon/journey.jpg" alt="WanderHon user journey map" loading="lazy"><figcaption>User journey map</figcaption></figure>
-    <figure class="case-figure"><img src="assets/wanderhon/sitemap.jpg" alt="WanderHon product sitemap" loading="lazy"><figcaption>Product sitemap</figcaption></figure>
-    <figure class="case-figure"><img src="assets/wanderhon/user-flows.jpg" alt="WanderHon user flows" loading="lazy"><figcaption>Core user flows</figcaption></figure>
-    <div class="card-grid">
-      <div class="card"><strong>Discovery</strong><p>Make nearby content easy to notice without overwhelming the map.</p></div>
-      <div class="card"><strong>Exploration</strong><p>Support natural movement between places, stories and recommendations.</p></div>
-      <div class="card"><strong>Retention</strong><p>Give users clear ways to save places and return to previous discoveries.</p></div>
-    </div>
-  </section>
+      <div class="audit-header"><h3>Learning from adjacent experiences</h3><p>The audit compared camera-based interaction, real-world exploration and character-led engagement rather than looking only for direct competitors.</p></div>
+      <div class="competitor-grid">
+        <article class="competitor-card"><span class="competitor-type">DIRECT · CAMERA INPUT</span><h4>Google Lens</h4><p><strong>Strength:</strong> Fast, familiar and easy to use.</p><p><strong>Gap:</strong> Practical but impersonal, with no guiding character.</p></article>
+        <article class="competitor-card"><span class="competitor-type">INDIRECT · EXPLORATION</span><h4>Pokémon GO</h4><p><strong>Strength:</strong> Magical, immersive and movement-based.</p><p><strong>Gap:</strong> Complex and not always inclusive or accessible.</p></article>
+        <article class="competitor-card"><span class="competitor-type">INDIRECT · CHARACTER</span><h4>Duolingo</h4><p><strong>Strength:</strong> Playful, polished and strong at habit-building.</p><p><strong>Gap:</strong> Its tone can feel too playful and content access is limited.</p></article>
+      </div>
+      <div class="opportunity-band"><div><p class="eyebrow">THE PRODUCT GAP</p><h3>Real-world discovery with personality.</h3></div><ul><li>Combine camera-based interaction with magical storytelling.</li><li>Use Hon to create an emotional, character-driven experience.</li><li>Make quirky facts casual, surprising and easy to discover.</li><li>Keep accessibility and clarity at the center of the playful design.</li></ul></div>
+      <figure class="artifact-figure"><img src="assets/wanderhon/journey.jpg" alt="WanderHon user journey map" loading="lazy"><figcaption>User journey from opening WanderHon to discovering and saving facts</figcaption></figure>
+    </section>
 
-  <section class="case-section">
-    <p class="eyebrow">02 · PROTOTYPING &amp; TESTING</p>
-    <h2>Testing interaction before development made the product clearer.</h2>
-    <p>I used prototypes throughout the project to test navigation and interaction rather than treating them only as presentation artifacts. The first usability round used a mid-fidelity Maze prototype. A second round tested the high-fidelity experience in Maze together with a moderated session.</p>
-    <figure class="case-figure"><img src="assets/wanderhon/wireframes.jpg" alt="WanderHon wireframes" loading="lazy"><figcaption>Early wireframes used to test the product structure</figcaption></figure>
-    <div class="card-grid two">
-      <div class="card"><strong>Swipe navigation</strong><p>Participants expected to swipe between content, so swipe interaction was added to make exploration feel more natural.</p></div>
-      <div class="card"><strong>Map overlays</strong><p>Overlays were obscuring points of interest, so the interaction was changed to keep the map more usable.</p></div>
-      <div class="card"><strong>Shorter onboarding</strong><p>The onboarding felt too long. A skip option was introduced to reduce friction.</p></div>
-      <div class="card"><strong>Clearer saving</strong><p>The second test showed that confirmation after saving was unclear, leading to stronger feedback.</p></div>
-      <div class="card"><strong>Scannable content</strong><p>Dense text was broken into shorter sections to make information easier to consume.</p></div>
-      <div class="card"><strong>Contextual guidance</strong><p>Tooltips were introduced where users needed additional explanation without adding permanent interface clutter.</p></div>
-    </div>
-    <div class="compare tall">
-      <figure><img src="assets/wanderhon/navigation-before.jpg" alt="WanderHon card navigation before usability testing" loading="lazy"><figcaption>Card navigation · before</figcaption></figure>
-      <figure><img src="assets/wanderhon/navigation-after.jpg" alt="WanderHon card navigation after usability testing" loading="lazy"><figcaption>Card navigation · after</figcaption></figure>
-    </div>
-    <div class="compare">
-      <figure><img src="assets/wanderhon/saving-before.jpg" alt="WanderHon trip saving before usability testing" loading="lazy"><figcaption>Trip saving · before</figcaption></figure>
-      <figure><img src="assets/wanderhon/saving-after.jpg" alt="WanderHon trip saving after usability testing" loading="lazy"><figcaption>Trip saving · after</figcaption></figure>
-    </div>
-    <div class="compare">
-      <figure><img src="assets/wanderhon/onboarding-before.jpg" alt="WanderHon onboarding before usability testing" loading="lazy"><figcaption>Onboarding · before</figcaption></figure>
-      <figure><img src="assets/wanderhon/onboarding-after.jpg" alt="WanderHon onboarding after usability testing" loading="lazy"><figcaption>Onboarding · after</figcaption></figure>
-    </div>
-  </section>
+    <section class="case-section">
+      <p class="eyebrow">02 · STRUCTURE &amp; WIREFRAMES</p><h2>Giving a whimsical idea a clear product structure.</h2>
+      <p>The information architecture connected onboarding and permissions with camera capture, postcard discovery, the Magic Map, saved trips and profile. User flows then made the key journeys concrete before visual design began.</p>
+      <div class="architecture-grid"><figure><img src="assets/wanderhon/sitemap.jpg" alt="WanderHon sitemap" loading="lazy"><figcaption>Sitemap · core product structure</figcaption></figure><figure><img src="assets/wanderhon/user-flows.jpg" alt="WanderHon user flows" loading="lazy"><figcaption>User flows · step-by-step traveler journeys</figcaption></figure></div>
+      <h3>Mid-fidelity wireframes</h3><p>Wireframes mapped the end-to-end flow—from onboarding and permissions to camera capture, postcards, saved trips and filtering—and became the basis for the first usability test.</p>
+      <div class="wireframe-stage"><img src="assets/wanderhon/wireframes.jpg" alt="WanderHon mid-fidelity wireframes" loading="lazy"></div>
+    </section>
 
-  <section class="case-section">
-    <p class="eyebrow">03 · DESIGN SYSTEM</p>
-    <h2>Building reusable patterns alongside the product.</h2>
-    <p>I created a Figma design system covering color, typography, spacing and elevation, then developed reusable components for buttons, cards and postcards, carousels, tooltips, modals and navigation. Patterns also covered onboarding, permissions and saving behavior.</p>
-    <figure class="case-figure portrait"><img src="assets/wanderhon/design-system.jpg" alt="WanderHon design system" loading="lazy"><figcaption>Reusable foundations and interface components</figcaption></figure>
-    <div class="tags">
-      <span>Color &amp; type</span><span>Spacing</span><span>Buttons</span><span>Cards</span><span>Carousels</span>
-      <span>Tooltips</span><span>Modals</span><span>Navigation</span><span>Permissions</span><span>Saving patterns</span>
-    </div>
-    <h3>Accessibility</h3>
-    <p>Accessibility was considered as part of the visual system. The interface met WCAG AAA contrast requirements and included support for larger text options.</p>
-  </section>
+    <section class="case-section">
+      <p class="eyebrow">03 · TWO ROUNDS OF TESTING</p><h2>Test the structure first. Then test the experience.</h2>
+      <div class="test-rounds">
+        <article class="test-round"><span class="round-label">ROUND 01 · MID-FIDELITY</span><h3>Validate navigation and flows</h3><div class="test-meta"><span>Method</span><strong>Remote, unmoderated Maze test</strong></div><ul><li>Users expected to swipe between postcards.</li><li>The map overlay sometimes blocked points of interest.</li><li>The onboarding was clear, but a skip option was valued.</li></ul><div class="test-change"><strong>Changed:</strong> Added swipe gestures, draggable overlays and an onboarding skip option.</div></article>
+        <article class="test-round"><span class="round-label">ROUND 02 · HIGH-FIDELITY</span><h3>Validate clarity and visual design</h3><div class="test-meta"><span>Method</span><strong>Maze tasks + moderated live session</strong></div><ul><li>The design felt magical, polished and easy to use.</li><li>Navigation flows felt smooth and intuitive.</li><li>Trip saving needed clearer confirmation.</li></ul><div class="test-change"><strong>Changed:</strong> Clarified save feedback, shortened long text and planned lightweight tooltips.</div></article>
+      </div>
+      <p class="testing-takeaway">Testing twice produced complementary insight: the first round improved the product’s structure; the second confirmed the visual direction and exposed the final moments that still needed clarity.</p>
+    </section>
 
-  <section class="case-section">
-    <p class="eyebrow">04 · HANDOFF &amp; CONTINUATION</p>
-    <h2>From prototype to implementation.</h2>
-    <p>I worked closely with the developer as the product moved toward implementation, organizing the Figma file and assets for handoff and resolving design details that appeared during development. This included asset organization, a loading spinner fix and iteration on the loading screen.</p>
-    <div class="result"><p>The project gave me end-to-end experience across research, product structure, interaction design, usability testing, visual systems and developer collaboration. The strongest lesson was how quickly a prototype can expose assumptions that look reasonable on a static screen but feel wrong when someone actually uses the flow.</p></div>
-  </section>
-</main>
+    <section class="case-section">
+      <p class="eyebrow">04 · DESIGN REFINEMENT</p><h2>Turning observed friction into visible improvements.</h2>
+      <p>I refined navigation, clarified task outcomes and shortened the path into the experience—while making sure the whimsical interface still supported usability.</p>
+      <div class="refinement-carousel" data-refinements>
+        <div class="refinement-nav" role="tablist" aria-label="Design refinements"><button type="button" role="tab" aria-selected="true" data-panel="navigation">Fact-card navigation</button><button type="button" role="tab" aria-selected="false" data-panel="saving">Trip saving</button><button type="button" role="tab" aria-selected="false" data-panel="onboarding">Onboarding</button></div>
+        <article class="refinement-panel active" data-panel-content="navigation"><h3>Natural postcard browsing</h3><p>Swipe gestures joined the arrow controls so moving between facts feels faster and more familiar.</p><div class="refinement-images"><figure><img src="assets/wanderhon/navigation-before.jpg" alt="Fact-card navigation before usability testing" loading="lazy"><figcaption>Before · arrows only</figcaption></figure><figure><img src="assets/wanderhon/navigation-after.jpg" alt="Fact-card navigation after usability testing" loading="lazy"><figcaption>After · swipe gestures and arrows</figcaption></figure></div></article>
+        <article class="refinement-panel" data-panel-content="saving"><h3>Reassuring save feedback</h3><p>A specific “Saved to Trip” message confirms both the action and its destination.</p><div class="refinement-images"><figure><img src="assets/wanderhon/saving-before.jpg" alt="Trip-saving flow before usability testing" loading="lazy"><figcaption>Before · unclear outcome</figcaption></figure><figure><img src="assets/wanderhon/saving-after.jpg" alt="Trip-saving flow after usability testing" loading="lazy"><figcaption>After · clear confirmation</figcaption></figure></div></article>
+        <article class="refinement-panel" data-panel-content="onboarding"><h3>A faster first entry</h3><p>The onboarding became three focused slides with a visible Skip action.</p><div class="refinement-images"><figure><img src="assets/wanderhon/onboarding-before.jpg" alt="Onboarding before usability testing" loading="lazy"><figcaption>Before · longer sequence</figcaption></figure><figure><img src="assets/wanderhon/onboarding-after.jpg" alt="Onboarding after usability testing" loading="lazy"><figcaption>After · three slides and Skip</figcaption></figure></div></article>
+      </div>
+    </section>
 
-<footer><span>© 2026 Mahsa Ahmadi</span><span>UX/UI Designer</span></footer>
+    <section class="prototype-section">
+      <div><p class="eyebrow">HIGH-FIDELITY PROTOTYPE</p><h2>From meeting Hon to saving a trip.</h2><p>The final walkthrough includes onboarding, camera capture, postcard navigation with swipes and arrows, trip saving and map exploration.</p></div>
+      <div class="prototype-video"><video controls playsinline preload="metadata" aria-label="WanderHon high-fidelity prototype demonstration"><source src="assets/wanderhon/prototype-mobile.m4v" type="video/x-m4v">Your browser does not support embedded video.</video></div>
+    </section>
+
+    <section class="case-section">
+      <p class="eyebrow">05 · DESIGN SYSTEM</p><h2>Giving the magical world a reusable foundation.</h2>
+      <p>The lightweight Figma system made the experience consistent, scalable and easier to hand off. Files, components and assets used clear naming and organization so future developers could work from a shared source of truth.</p>
+      <div class="system-layout"><figure class="system-image"><img src="assets/wanderhon/design-system.jpg" alt="WanderHon design system foundations and components" loading="lazy"></figure><div class="system-parts"><article><span>01 · FOUNDATIONS</span><h3>Color, type and rhythm</h3><p>High-contrast color, friendly headings, readable body text, spacing and elevation.</p></article><article><span>02 · COMPONENTS</span><h3>Reusable UI</h3><p>Buttons, postcards, carousels, tooltips, modals and navigation bars.</p></article><article><span>03 · PATTERNS</span><h3>Repeatable behavior</h3><p>Onboarding, permissions, saving and sharing, and map overlays.</p></article><article><span>04 · ASSETS</span><h3>Hon’s world</h3><p>Animations, sparkles, spells, art-deco frames and decorative dividers.</p></article></div></div>
+
+      <div class="access-grid"><article><span>01</span><h3>Readable text</h3><p>Larger type and improved spacing in fact cards and Hon’s bio.</p></article><article><span>02</span><h3>Flexible navigation</h3><p>Swipe interaction alongside arrows for postcard browsing.</p></article><article><span>03</span><h3>High contrast</h3><p>A light-on-dark palette designed to meet WCAG AAA contrast.</p></article></div>
+    </section>
+
+    <section class="wander-outcome">
+      <p class="eyebrow">OUTCOME</p><h2>A tested product vision, ready to move toward development.</h2>
+      <p class="outcome-lead">The project delivered a high-fidelity iOS and Android prototype plus a structured design system. Core interactions were validated before developer handoff, giving the founder a clear view of the product and how it could evolve.</p>
+      <div class="learning-grid"><p>Testing wireframes and high-fidelity design revealed different—but equally valuable—insights.</p><p>Character and visual storytelling build engagement when balanced with clarity.</p><p>Building the system alongside the product strengthens consistency and handoff.</p></div>
+    </section>
+
+    <section class="case-section">
+      <p class="eyebrow">NEXT STEPS</p><h2>Supporting the move from prototype to product.</h2>
+      <div class="wander-next"><article><span>01</span><p>Collaborate with the incoming developer to refine implementation details.</p></article><article><span>02</span><p>Clarify interaction behavior during the transition to development.</p></article><article><span>03</span><p>Continue evolving the design system as new flows are built.</p></article><article><span>04</span><p>Test the developer version in a real-world context.</p></article></div>
+      <p class="project-note">WanderHon is a product concept provided by the client. The concept belongs to the client; the design work shown here is my contribution. This project is shared for portfolio purposes only and should not be copied or reused.</p>
+    </section>
+  </main>
+
+  <footer><span>© 2026 Mahsa Ahmadi</span><span>UX/UI Designer</span></footer>
+  <script>
+    const refinement = document.querySelector('[data-refinements]');
+    const tabs = [...refinement.querySelectorAll('[data-panel]')];
+    const panels = [...refinement.querySelectorAll('[data-panel-content]')];
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      const selected = tab.dataset.panel;
+      tabs.forEach((item) => item.setAttribute('aria-selected', String(item === tab)));
+      panels.forEach((panel) => panel.classList.toggle('active', panel.dataset.panelContent === selected));
+    }));
+  </script>
 </body>
 </html>

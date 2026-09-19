@@ -181,15 +181,26 @@ footer{gap:12px;flex-direction:column}
 .case-banner .match-card{transform:scale(1.15)}
 
 .case-banner .ar-scene{width:min(620px,80%);height:330px}
-.case-banner.image-banner{display:block;min-height:0;background:transparent;overflow:hidden}
-.case-banner.image-banner img{display:block;width:100%;max-height:680px;object-fit:cover;border-radius:20px}
-.case-figure{margin:36px 0}
-.case-figure img{display:block;width:100%;max-height:720px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:16px}
+/* Case-study imagery.
+   Content images are never cropped and never forced to a shared height:
+   the source material runs from ar 0.41 (tall phone screens) to ar 4.38
+   (a wide sitemap), so any fixed height either crops a diagram or
+   letterboxes it inside a mostly-empty box. Width is the only constraint;
+   height follows the image. Tall images are reined in by max-width. */
+.case-banner.image-banner{display:block;min-height:0;background:transparent;overflow:visible}
+.case-banner.image-banner img{display:block;width:100%;height:auto;border-radius:20px}
+.case-figure{margin:40px 0}
+.case-figure img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
 .case-figure figcaption,.case-gallery figcaption,.compare figcaption{margin-top:10px;color:var(--muted);font-size:13px}
-.case-gallery,.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:36px 0}
+.case-gallery,.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:40px 0;align-items:start}
 .case-gallery.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .case-gallery figure,.compare figure{margin:0}
-.case-gallery img,.compare img{display:block;width:100%;height:100%;max-height:580px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:16px}
+.case-gallery img,.compare img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:16px}
+/* Width modifiers, usable on .case-figure, .case-gallery or .compare.
+   .portrait  — upright screens, and small sources that would upscale and blur.
+   .tall      — very tall phone captures (ar < 0.5) that would otherwise tower. */
+.portrait img{max-width:420px;margin-inline:auto}
+.tall img{max-width:300px;margin-inline:auto}
 
 .case-section{padding:80px 0;border-bottom:1px solid var(--line)}
 

@@ -89,6 +89,11 @@ nav a:hover{color:var(--accent)}
 .contact-row>span:first-child{color:var(--muted);font-size:13px}
 .contact-row a{font-weight:500}
 .contact-row a:hover{text-decoration:underline}
+/* Cross-link to the jewellery portfolio — mirrors the one pointing back. */
+.crosslink{width:min(1180px,90vw);margin:auto;padding:clamp(48px,6vw,76px) 0;text-align:center}
+.crosslink p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
+.crosslink a{font-size:20px;font-weight:600;letter-spacing:-.025em;color:var(--accent)}
+.crosslink a:hover{text-decoration:underline}
 footer{padding:27px 0 38px;display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
 @media(max-width:800px){.featured-link .project-visual{aspect-ratio:5/3}
 .site-header{height:68px}

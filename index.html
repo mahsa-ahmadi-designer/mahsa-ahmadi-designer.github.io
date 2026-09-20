@@ -268,5 +268,20 @@
 <span>© 2026 Mahsa Ahmadi</span>
 <span>UX/UI Designer</span>
 </footer>
+<script>
+(function(){
+  var rows = document.querySelectorAll('.project-link');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    rows.forEach(function(r){ r.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  rows.forEach(function(r){ io.observe(r); });
+})();
+</script>
 </body>
 </html>

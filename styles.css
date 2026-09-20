@@ -25,30 +25,39 @@ nav a:hover{color:var(--accent)}
 .section-head{display:grid;grid-template-columns:1fr 390px;gap:70px;align-items:end;margin-bottom:52px}
 .section-head h2,.about h2,.background h2{font-size:clamp(34px,3.6vw,50px);line-height:1.1;font-weight:600;letter-spacing:-.04em;margin:0}
 .section-head>p{color:var(--muted);margin:0 0 5px}
-.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-.project-link{display:block;height:100%}
-/* The first project spans both columns, so the grid reads 1 / 2 / 2. */
-.project-link.featured-link{grid-column:1/-1}
-.project{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+/* ── Work: alternating rows, the same pattern as the jewellery page ──
+   One project per row, boxed like a card. The image column keeps the
+   cover's own 5:3 shape, so only a few percent is trimmed from the sides
+   and the tagline text on each cover stays clear. */
+.project-grid{display:flex;flex-direction:column;gap:28px}
+.project-link{display:block}
+.project{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
 .project-link:hover .project,.project:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(21,45,58,.08);border-color:#c8d5da}
-/* The five covers are now all 1.57-1.72, so a single 5:3 box suits them all:
-   the image fills it edge to edge with at most ~6% trimmed, which leaves no
-   margin to colour and keeps every card the same height. */
+.project-link:nth-child(even) .project-visual{order:2}
+.project-link:nth-child(even) .project-body{order:1}
 .project-visual{aspect-ratio:5/3;display:block;overflow:hidden;background:#edf1f2}
 .project-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
 .project-link:hover .project-visual img{transform:scale(1.025)}
-/* The featured card is twice as wide, so a 5:3 box would make it twice as
-   tall as well. A wider box keeps it proportionate; anchoring to the top
-   trims only the bottom, where the mockups are already cut off, and leaves
-   the logo and tagline in the upper third untouched. */
-.featured-link .project-visual{aspect-ratio:12/5}
-.featured-link .project-visual img{object-position:top}
-.project-body{padding:32px;display:flex;flex-direction:column;flex:1}
+.project-body{padding:clamp(30px,3.4vw,48px);display:flex;flex-direction:column;justify-content:center}
 .project-number{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:15px}
 .project-body h3{font-size:29px;line-height:1.15;font-weight:600;margin:0 0 13px;letter-spacing:-.035em}
 .project-body p{color:var(--muted);max-width:620px;margin:0;font-size:15px}
 .project-body .project-lead{font-size:17px;color:var(--ink);margin-bottom:12px}
-.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:27px}
+.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px}
+/* The whole card is already a link, so this is a cue, not a separate control. */
+.project-body::after{content:"View the case study \2192";display:inline-flex;align-self:flex-start;margin-top:24px;font-size:13px;font-weight:600;color:var(--accent);transition:transform .3s}
+.project-link:hover .project-body::after{transform:translateX(6px)}
+/* Each half arrives from the side it sits on. */
+.project-visual,.project-body{opacity:0;transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.project-link:nth-child(odd) .project-visual{transform:translateX(-26px)}
+.project-link:nth-child(odd) .project-body{transform:translateX(26px)}
+.project-link:nth-child(even) .project-visual{transform:translateX(26px)}
+.project-link:nth-child(even) .project-body{transform:translateX(-26px)}
+.project-link.in .project-visual,.project-link.in .project-body{opacity:1;transform:none}
 .project-tags span,.skills span{font-size:11px;font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fff}
 .statement{background:var(--navy);color:#fff;padding:110px 0;position:relative}
 .statement:before{content:"";position:absolute;top:-1px;left:0;right:0;height:46px;background:var(--paper);clip-path:polygon(0 0,100% 0,100% 12%,0 100%)}
@@ -98,7 +107,7 @@ nav a:hover{color:var(--accent)}
 .crosslink a{font-size:20px;font-weight:600;letter-spacing:-.025em;color:var(--accent)}
 .crosslink a:hover{text-decoration:underline}
 footer{padding:27px 0 38px;display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
-@media(max-width:800px){.featured-link .project-visual{aspect-ratio:5/3}
+@media(max-width:800px){
 .site-header{height:68px}
 nav{gap:12px}
 nav a:not(.nav-cta){display:none}
@@ -110,8 +119,11 @@ nav a:not(.nav-cta){display:none}
 .section{padding:80px 0}
 .section-head{grid-template-columns:1fr;gap:25px;margin-bottom:42px}
 .section-head h2,.about h2,.background h2{font-size:36px}
-.project-grid{grid-template-columns:1fr}
-.project-body{padding:30px}
+.project-grid{gap:20px}
+.project{grid-template-columns:1fr}
+.project-link:nth-child(even) .project-visual,.project-link:nth-child(even) .project-body{order:initial}
+.project-body{padding:28px}
+.project-link:nth-child(n) .project-visual,.project-link:nth-child(n) .project-body{transform:translateY(20px)}
 .statement{padding:100px 0 80px}
 .process-steps{grid-template-columns:1fr 1fr;gap:14px 20px}
 .process-steps span:not(:last-child):after{display:none}
@@ -127,6 +139,7 @@ footer{gap:12px;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 .project{transition:none}
+.project-visual,.project-body{opacity:1!important;transform:none!important;transition:none}
 }
 
 /* ── Case-study pages ───────────────────────────────────────── */

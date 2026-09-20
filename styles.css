@@ -66,18 +66,21 @@ nav a:hover{color:var(--accent)}
 .about-copy p:first-child{margin-top:0;color:var(--ink);font-size:20px}
 .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;color:var(--ink)}
 .background{border-top:1px solid var(--line)}
-.background-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
-.career-card{border:1px solid var(--line);border-radius:16px;padding:42px;background:var(--surface)}
-.origin-card{background:var(--warm)}
-.career-label{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--accent)}
-.career-card h3{font-size:27px;letter-spacing:-.03em;margin:12px 0 32px}
-.origin-card>p{color:var(--muted);font-size:15px}
-.career-item{display:grid;grid-template-columns:100px 1fr;gap:15px;border-top:1px solid var(--line);padding:22px 0}
+.background-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+/* Two cards, same size, a shade apart: cool for the digital work — it
+   picks up the site accent — and warm for the physical, where the
+   material is metal and stone. Both stay close to white so the
+   section still reads as one block. */
+.career-card{border:1px solid var(--line);border-radius:16px;padding:42px}
+.primary-card{background:#eef5f6;border-color:#cfe2e4}
+.origin-card{background:#f7f3ec;border-color:#e6dcc9}
+.career-card h3{font-size:27px;letter-spacing:-.03em;margin:0 0 32px}
+.career-card>p{color:var(--muted);font-size:15px}
+.career-item{display:grid;grid-template-columns:100px 1fr;gap:15px;border-top:1px solid rgba(23,32,42,.10);padding:22px 0}
 .career-item>span{font-size:12px;color:var(--muted);padding-top:3px}
 .career-item strong{font-size:15px}
 .career-item p{margin:3px 0 0;color:var(--muted);font-size:13px}
 .career-item.compact{margin-top:20px}
-.background-note{border-top:1px solid #ddd6ca;padding-top:20px;margin-top:8px!important;font-size:12px!important}
 .contact{background:var(--accent-soft);position:relative;margin-top:20px}
 .contact:before{content:"";position:absolute;top:-55px;left:0;right:0;height:56px;background:var(--accent-soft);clip-path:polygon(0 100%,100% 0,100% 100%)}
 .contact-inner{padding:105px 0}

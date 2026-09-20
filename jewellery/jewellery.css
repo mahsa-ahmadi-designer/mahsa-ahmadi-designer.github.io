@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   Jewellery portfolio — a deliberately separate visual world from the UX
+   site. Warm paper and gold instead of cool teal, a display serif instead
+   of Inter alone, and galleries that let every piece keep its own shape.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink:#1a1512;
+  --ink-soft:#4a4038;
+  --muted:#8c8177;
+  --paper:#faf7f2;
+  --paper-warm:#f2ece2;
+  --surface:#fff;
+  --gold:#a8814a;
+  --gold-deep:#8a6733;
+  --gold-wash:#efe4d2;
+  --line:rgba(168,129,74,.22);
+  --shadow:24px 40px 80px rgba(60,44,26,.10);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.wrap{width:min(1240px,90vw);margin:auto}
+
+/* ── Type ─────────────────────────────────────────────────────────── */
+.display{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;letter-spacing:-.015em;line-height:1.02}
+.eyebrow{
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  font-weight:600;color:var(--gold-deep);margin:0 0 18px;
+}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+.site-header{
+  position:sticky;top:0;z-index:30;height:74px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 max(5vw,28px);
+  background:rgba(250,247,242,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.brand{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;letter-spacing:.01em}
+.brand span{color:var(--gold)}
+.site-header nav{display:flex;align-items:center;gap:30px;font-size:13px;letter-spacing:.04em}
+.site-header nav a{color:var(--ink-soft);transition:color .2s}
+.site-header nav a:hover{color:var(--gold-deep)}
+.nav-cta{
+  border:1px solid var(--gold);color:var(--gold-deep)!important;
+  border-radius:2px;padding:10px 20px;transition:background .25s,color .25s;
+}
+.nav-cta:hover{background:var(--gold);color:#fff!important}
+
+/* ── Hero ─────────────────────────────────────────────────────────
+   Every source image is square or portrait, so a full-bleed banner would
+   have to crop hard. A split instead: type on paper, one image bleeding
+   off the right edge at its own ratio. */
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);
+  min-height:clamp(580px,88vh,920px);align-items:center;
+}
+.hero-copy{padding:clamp(56px,7vw,96px) clamp(28px,4vw,64px) clamp(56px,7vw,96px) max(5vw,28px)}
+.hero-copy h1{font-size:clamp(50px,7.4vw,104px);margin:0}
+.hero-copy .lede{
+  font-size:clamp(17px,1.5vw,20px);color:var(--ink-soft);
+  max-width:520px;margin:28px 0 0;line-height:1.65;
+}
+.hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:38px;padding-top:26px;border-top:1px solid var(--line)}
+.hero-meta div{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero-meta b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:300;letter-spacing:0;text-transform:none;color:var(--gold-deep);margin-bottom:2px}
+.hero-img{height:100%;min-height:340px;overflow:hidden;background:var(--paper-warm)}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* ── Intro ────────────────────────────────────────────────────────── */
+.intro{padding:clamp(80px,10vw,140px) 0}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,7vw,110px);align-items:start}
+.intro h2{font-size:clamp(34px,4.4vw,60px);margin:0}
+.intro p{font-size:18px;color:var(--ink-soft);margin:0 0 20px;max-width:620px}
+.intro p:last-child{margin-bottom:0}
+
+/* ── Collections ──────────────────────────────────────────────────── */
+.collection{padding:clamp(64px,8vw,110px) 0;border-top:1px solid var(--line)}
+.collection-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:clamp(36px,5vw,62px)}
+.collection-head h2{font-size:clamp(32px,4vw,54px);margin:0}
+.collection-head p{color:var(--ink-soft);margin:0;font-size:17px}
+.collection-count{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+
+/* Masonry columns: every piece keeps its own aspect ratio, so nothing is
+   ever cropped or padded — the column simply flows around it. */
+.gallery{columns:3;column-gap:22px}
+.piece{break-inside:avoid;margin:0 0 22px;position:relative}
+.piece-frame{overflow:hidden;background:var(--paper-warm);border-radius:2px}
+.piece img{width:100%;height:auto;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.piece:hover img{transform:scale(1.04)}
+.piece figcaption{padding:14px 2px 0}
+.piece-name{font-family:"Cormorant Garamond",Georgia,serif;font-size:21px;line-height:1.25}
+.piece-note{font-size:13.5px;color:var(--muted);margin-top:3px}
+.piece-tag{
+  display:inline-block;margin-top:9px;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-deep);
+  border:1px solid var(--line);border-radius:2px;padding:4px 9px;
+}
+
+/* ── Highlight band (for the Vitaly commercial work) ──────────────── */
+.highlight{background:var(--ink);color:#fff;padding:clamp(64px,8vw,110px) 0;margin-top:clamp(64px,8vw,110px)}
+.highlight .eyebrow{color:#d9bc8a}
+.highlight h2{font-size:clamp(32px,4vw,54px);margin:0 0 24px;color:#fff}
+.highlight p{color:rgba(255,255,255,.76);font-size:17px;max-width:660px;margin:0}
+.highlight-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:start}
+.stat-row{display:flex;gap:44px;flex-wrap:wrap;margin-top:34px}
+.stat b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:40px;line-height:1;color:#e3c893;font-weight:300}
+.stat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+
+/* ── Contact ──────────────────────────────────────────────────────── */
+.contact{background:var(--gold-wash);padding:clamp(70px,9vw,120px) 0}
+.contact h2{font-size:clamp(32px,4vw,54px);margin:0}
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,90px);align-items:start}
+.contact-rows{border-top:1px solid rgba(138,103,51,.28)}
+.contact-row{
+  display:grid;grid-template-columns:130px minmax(0,1fr);gap:22px;
+  padding:19px 0;border-bottom:1px solid rgba(138,103,51,.28);font-size:15.5px;
+}
+.contact-row>span:first-child{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep)}
+.contact-row a:hover{text-decoration:underline}
+
+/* ── Cross-link back to the UX portfolio ──────────────────────────── */
+.crosslink{padding:clamp(48px,6vw,80px) 0;text-align:center}
+.crosslink p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.crosslink a{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;
+  color:var(--gold-deep);border-bottom:1px solid var(--line);padding-bottom:3px;
+  transition:border-color .25s;
+}
+.crosslink a:hover{border-color:var(--gold)}
+
+footer{padding:30px 0 46px;display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:11.5px;letter-spacing:.06em}
+
+/* ── Lightbox ─────────────────────────────────────────────────────── */
+.lightbox{
+  position:fixed;inset:0;z-index:60;display:none;
+  background:rgba(20,16,13,.95);padding:clamp(20px,4vw,56px);
+}
+.lightbox.open{display:grid;place-items:center}
+.lightbox img{max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:2px}
+.lightbox figcaption{color:rgba(255,255,255,.8);text-align:center;margin-top:18px;font-size:14px}
+.lightbox figcaption b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:300;color:#fff;margin-bottom:4px}
+.lb-close,.lb-prev,.lb-next{
+  position:fixed;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:19px;line-height:1;
+  display:grid;place-items:center;transition:background .2s,border-color .2s;
+}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.6)}
+.lb-close{top:26px;right:26px}
+.lb-prev{left:26px;top:50%;transform:translateY(-50%)}
+.lb-next{right:26px;top:50%;transform:translateY(-50%)}
+
+/* ── Scroll reveal ────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media(max-width:1000px){
+  .gallery{columns:2}
+  .intro-grid,.collection-head,.highlight-grid,.contact-grid{grid-template-columns:1fr;gap:26px}
+  .collection-head{align-items:start}
+}
+@media(max-width:620px){
+  .site-header{height:66px}
+  .site-header nav{gap:16px}
+  .site-header nav a:not(.nav-cta){display:none}
+  .gallery{columns:1}
+  .hero{min-height:74vh}
+  .stat-row{gap:28px}
+  .contact-row{grid-template-columns:96px minmax(0,1fr);gap:14px;word-break:break-word}
+  footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .piece img{transition:none}
+}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:clamp(46px,9vw,70px) max(5vw,24px)}
+  .hero-img{min-height:0;aspect-ratio:4/3}
+}

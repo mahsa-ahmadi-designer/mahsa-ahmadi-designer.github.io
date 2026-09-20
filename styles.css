@@ -25,7 +25,7 @@ nav a:hover{color:var(--accent)}
 .section-head{display:grid;grid-template-columns:1fr 390px;gap:70px;align-items:end;margin-bottom:52px}
 .section-head h2,.about h2,.background h2{font-size:clamp(34px,3.6vw,50px);line-height:1.1;font-weight:600;letter-spacing:-.04em;margin:0}
 .section-head>p{color:var(--muted);margin:0 0 5px}
-/* ── Work: alternating rows, the same pattern as the jewellery page ──
+/* ── Work: alternating rows, the same pattern as the jewelry page ──
    One project per row, boxed like a card. The image column keeps the
    cover's own 5:3 shape, so only a few percent is trimmed from the sides
    and the tagline text on each cover stays clear. */
@@ -104,7 +104,7 @@ nav a:hover{color:var(--accent)}
 .contact-row>span:first-child{color:var(--muted);font-size:13px}
 .contact-row a{font-weight:500}
 .contact-row a:hover{text-decoration:underline}
-/* Cross-link to the jewellery portfolio — mirrors the one pointing back. */
+/* Cross-link to the jewelry portfolio — mirrors the one pointing back. */
 .crosslink{width:min(1180px,90vw);margin:auto;padding:clamp(48px,6vw,76px) 0;text-align:center}
 .crosslink p{color:var(--muted);font-size:14.5px;margin:0 0 12px}
 .crosslink a{font-size:20px;font-weight:600;letter-spacing:-.025em;color:var(--accent)}

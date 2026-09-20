@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Beauty of the Letters — jewellery by Mahsa Ahmadi. Letterforms used as structure rather than decoration.">
+  <title>Beauty of the Letters — Mahsa Ahmadi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="jewellery.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Mahsa Ahmadi<span>.</span></a>
+    <nav>
+      <a href="index.html#collections">Collections</a>
+      <a href="index.html#about">About</a>
+      <a href="../index.html">UX&nbsp;Portfolio</a>
+      <a class="nav-cta" href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="c-hero wrap">
+      <p class="eyebrow">Collection 04</p>
+      <h1 class="display">Beauty of the Letters</h1>
+      <p class="lede">Letterforms used as structure rather than decoration.</p>
+      <div class="c-facts">
+        <div><b>6</b>Pieces</div>
+        <div><b>2015—2018</b>Years</div>
+        <div><b>Farhadian Gold</b>Made with</div>
+        <div><b>Gold, diamonds, leather</b>Materials</div>
+      </div>
+    </section>
+
+    <section class="story wrap reveal">
+      <div class="story-grid">
+        <h2>Letters as structure</h2>
+        <div class="story-body">
+          <p class="lead-para">A letter already has a shape people recognise before they read it. That is the part I use.</p>
+          <blockquote class="pull">A name has to flow, hold together, and still read when it is small.</blockquote>
+          <p>These began with Armenian letterforms and names, and grew into rings, bracelets and pendants. The work is all in the balance — a name has to flow, hold together as an object, and still be readable once it is small enough to wear.</p>
+          <p>Some of these were made with Farhadian Gold, including the gold and leather cuff and the pavé-set name pendants.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <div class="c-gallery-head">
+        <h2>Pieces</h2>
+        <span>6 pieces</span>
+      </div>
+      <div class="gallery">
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/letters-sketch.jpg" alt="Ballpoint sketch of a cursive name with a flourish underline" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Name pendant</div>
+          <div class="piece-note">First drawing</div>
+          <span class="piece-tag">Sketch</span>
+        </figcaption>
+      </figure>
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/letters-02.jpg" alt="Pencil sketch of a name pendant with script letters covered in pavé stones" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Name pendant</div>
+          <div class="piece-note">Pavé-set script</div>
+          <span class="piece-tag">Sketch</span>
+        </figcaption>
+      </figure>
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/letters-01.jpg" alt="Rose gold name pendant with script letters in pavé diamonds" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Name pendant</div>
+          <div class="piece-note">Rose gold, pavé diamonds</div>
+          <span class="piece-tag">Designed for Farhadian Gold</span>
+        </figcaption>
+      </figure>
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/minimal-07.jpg" alt="Rose gold ring with a name in raised rounded letters" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Name ring</div>
+          <div class="piece-note">Rose gold, raised letters</div>
+          <span class="piece-tag">Designed for Farhadian Gold</span>
+        </figcaption>
+      </figure>
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/letters-bracelet.jpg" alt="Black leather cuff bracelet with a round gold clasp charm" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Letter cuff</div>
+          <div class="piece-note">Black leather, gold clasp</div>
+          <span class="piece-tag">Designed for Farhadian Gold</span>
+        </figcaption>
+      </figure>
+<figure class="piece">
+        <div class="piece-frame"><img src="../assets/jewellery/letters-05.jpg" alt="Hand wearing a silver ring shaped from two curved letter-like forms" loading="lazy"></div>
+        <figcaption>
+          <div class="piece-name">Letterform ring</div>
+          <div class="piece-note">Silver</div>
+        </figcaption>
+      </figure>
+      </div>
+    </section>
+
+  <nav class="c-nav">
+    <a href="think-out-of-the-box.html"><span>Previous collection</span><b>Think Out Of The Box</b></a>
+    <a href="index.html#collections"><span>Back to</span><b>All collections</b></a>
+  </nav>
+  </main>
+
+  <footer class="wrap"><span>© 2026 Mahsa Ahmadi</span><span>Jewellery &amp; Accessory Design</span></footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lb-close" aria-label="Close">✕</button>
+  <button class="lb-prev" aria-label="Previous">‹</button>
+  <button class="lb-next" aria-label="Next">›</button>
+  <figure><img id="lb-img" src="" alt=""><figcaption><b id="lb-name"></b><span id="lb-note"></span></figcaption></figure>
+</div>
+<script>
+(function () {
+  var pieces = Array.prototype.slice.call(document.querySelectorAll('.piece'));
+  var lightbox = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbName = document.getElementById('lb-name');
+  var lbNote = document.getElementById('lb-note');
+  var lbClose = document.querySelector('.lb-close');
+  var lbPrev = document.querySelector('.lb-prev');
+  var lbNext = document.querySelector('.lb-next');
+  var currentIndex = -1;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    var piece = pieces[currentIndex];
+    var img = piece.querySelector('img');
+    var name = piece.querySelector('.piece-name');
+    var note = piece.querySelector('.piece-note');
+    lbImg.src = img.getAttribute('src');
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbName.textContent = name ? name.textContent : '';
+    lbNote.textContent = note ? note.textContent : '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    currentIndex = -1;
+  }
+
+  function showNext() {
+    if (currentIndex === -1) return;
+    openLightbox((currentIndex + 1) % pieces.length);
+  }
+
+  function showPrev() {
+    if (currentIndex === -1) return;
+    openLightbox((currentIndex - 1 + pieces.length) % pieces.length);
+  }
+
+  pieces.forEach(function (piece, index) {
+    piece.addEventListener('click', function () {
+      openLightbox(index);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbNext.addEventListener('click', showNext);
+  lbPrev.addEventListener('click', showPrev);
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+
+  var reveals = document.querySelectorAll('.reveal');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) {
+      el.classList.add('in');
+    });
+  }
+})();
+</script>
+</body>
+</html>

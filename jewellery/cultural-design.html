@@ -58,7 +58,7 @@
             <figure class="piece"><div class="piece-frame"><img src="../assets/jewellery/destiny-ring-sketch.png" alt="Concept sketch for the Destiny Ring" loading="lazy"></div><figcaption><div class="piece-name">Destiny Ring</div><div class="piece-note">Concept sketch</div><span class="piece-tag">Sketch</span></figcaption></figure>
             <figure class="piece"><div class="piece-frame"><img src="../assets/jewellery/cultural-ring-a.jpg" alt="Gold Destiny Ring with winged figures and a green centre stone" loading="lazy"></div><figcaption><div class="piece-name">Destiny Ring</div><div class="piece-note">Gold variation</div></figcaption></figure>
             <figure class="piece"><div class="piece-frame"><img src="../assets/jewellery/destiny-ring-silver.jpg" alt="Silver Destiny Ring with winged figures and a dark centre stone" loading="lazy"></div><figcaption><div class="piece-name">Destiny Ring</div><div class="piece-note">Silver variation</div></figcaption></figure>
-            <figure class="video-piece"><div class="piece-frame"><video controls playsinline preload="metadata" aria-label="Video showing the Destiny Ring"><source src="../assets/jewellery/destiny-ring-process.mp4" type="video/mp4">Your browser does not support embedded video.</video></div><figcaption><div class="piece-name">Destiny Ring</div><div class="piece-note">Product video</div></figcaption></figure>
+            <figure class="video-piece"><div class="piece-frame"><video muted playsinline preload="metadata" aria-label="Video showing the Destiny Ring"><source src="../assets/jewellery/destiny-ring-process.mp4" type="video/mp4">Your browser does not support embedded video.</video></div><figcaption><div class="piece-name">Destiny Ring</div><div class="piece-note">Product video · Click to enlarge</div></figcaption></figure>
           </div>
         </article>
 
@@ -76,6 +76,7 @@
           <div class="product-media">
             <figure class="piece sketch-piece"><div class="piece-frame"><img src="../assets/jewellery/shamiram-drawing.jpg" alt="Concept drawing for the Shamiram Necklace" loading="lazy"></div><figcaption><div class="piece-name">Shamiram Necklace</div><div class="piece-note">Concept drawing</div></figcaption></figure>
             <figure class="piece"><div class="piece-frame"><img src="../assets/jewellery/shamiram-finished.jpg" alt="Finished gold Shamiram Necklace with pave diamonds and a green stone" loading="lazy"></div><figcaption><div class="piece-name">Shamiram Necklace</div><div class="piece-note">Gold, pavé diamonds, green stone</div></figcaption></figure>
+            <figure class="video-piece"><div class="piece-frame"><video muted playsinline preload="metadata" aria-label="Video showing the Shamiram Necklace"><source src="../assets/jewellery/shamiram-video.mp4" type="video/mp4">Your browser does not support embedded video.</video></div><figcaption><div class="piece-name">Shamiram Necklace</div><div class="piece-note">Product video · Click to enlarge</div></figcaption></figure>
           </div>
         </article>
 
@@ -96,17 +97,18 @@
   </main>
 
   <footer class="wrap"><span>© 2026 Mahsa Ahmadi</span><span>Jewelry &amp; Accessory Design</span></footer>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged media">
   <button class="lb-close" aria-label="Close">✕</button>
   <button class="lb-prev" aria-label="Previous">‹</button>
   <button class="lb-next" aria-label="Next">›</button>
-  <figure><img id="lb-img" src="" alt=""><figcaption><b id="lb-name"></b><span id="lb-note"></span></figcaption></figure>
+  <figure><img id="lb-img" src="" alt=""><video id="lb-video" controls playsinline hidden></video><figcaption><b id="lb-name"></b><span id="lb-note"></span></figcaption></figure>
 </div>
 <script>
 (function () {
-  var pieces = Array.prototype.slice.call(document.querySelectorAll('.piece'));
+  var mediaItems = Array.prototype.slice.call(document.querySelectorAll('.piece, .video-piece'));
   var lightbox = document.getElementById('lightbox');
   var lbImg = document.getElementById('lb-img');
+  var lbVideo = document.getElementById('lb-video');
   var lbName = document.getElementById('lb-name');
   var lbNote = document.getElementById('lb-note');
   var lbClose = document.querySelector('.lb-close');
@@ -116,37 +118,65 @@
 
   function openLightbox(index) {
     currentIndex = index;
-    var piece = pieces[currentIndex];
-    var img = piece.querySelector('img');
-    var name = piece.querySelector('.piece-name');
-    var note = piece.querySelector('.piece-note');
-    lbImg.src = img.getAttribute('src');
-    lbImg.alt = img.getAttribute('alt') || '';
+    var item = mediaItems[currentIndex];
+    var img = item.querySelector('img');
+    var videoSource = item.querySelector('video source');
+    var name = item.querySelector('.piece-name');
+    var note = item.querySelector('.piece-note');
+
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
+
+    if (videoSource) {
+      lbImg.hidden = true;
+      lbVideo.hidden = false;
+      lbVideo.src = videoSource.getAttribute('src');
+      lbVideo.load();
+      lbVideo.play().catch(function () {});
+    } else {
+      lbVideo.hidden = true;
+      lbImg.hidden = false;
+      lbImg.src = img.getAttribute('src');
+      lbImg.alt = img.getAttribute('alt') || '';
+    }
     lbName.textContent = name ? name.textContent : '';
-    lbNote.textContent = note ? note.textContent : '';
+    lbNote.textContent = note ? note.textContent.replace(' · Click to enlarge', '') : '';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('open');
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
     document.body.style.overflow = '';
     currentIndex = -1;
   }
 
   function showNext() {
     if (currentIndex === -1) return;
-    openLightbox((currentIndex + 1) % pieces.length);
+    openLightbox((currentIndex + 1) % mediaItems.length);
   }
 
   function showPrev() {
     if (currentIndex === -1) return;
-    openLightbox((currentIndex - 1 + pieces.length) % pieces.length);
+    openLightbox((currentIndex - 1 + mediaItems.length) % mediaItems.length);
   }
 
-  pieces.forEach(function (piece, index) {
-    piece.addEventListener('click', function () {
+  mediaItems.forEach(function (item, index) {
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', 'View ' + (item.querySelector('.piece-name') ? item.querySelector('.piece-name').textContent : 'media') + ' larger');
+    item.addEventListener('click', function () {
       openLightbox(index);
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(index);
+      }
     });
   });
 

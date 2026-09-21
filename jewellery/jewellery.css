@@ -190,7 +190,6 @@ img{display:block;max-width:100%}
 .product-media .piece{margin:0;scroll-snap-align:start;cursor:zoom-in}
 .product-media .piece-frame{aspect-ratio:1;display:grid;place-items:center}
 .product-media .piece img{width:100%;height:100%;object-fit:cover}
-.product-media .destiny-prototype-detail img{object-position:50% 53%}
 .product-media .piece:has(.piece-tag) img{object-fit:contain;background:#f7f7f4}
 .product-media .sketch-piece img{object-fit:contain;background:#f7f7f4}
 .product-media .video-piece{margin:0;scroll-snap-align:start;cursor:zoom-in}

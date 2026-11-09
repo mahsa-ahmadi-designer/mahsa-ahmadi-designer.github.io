@@ -1,0 +1,86 @@
+.upcycle-page{width:min(1120px,90vw);margin:auto}
+.upcycle-hero{padding:70px 0 100px;display:grid;grid-template-columns:1fr .82fr;gap:70px;align-items:center}
+.upcycle-hero h1{font-size:clamp(54px,7vw,88px);line-height:.98;letter-spacing:-.06em;font-weight:600;margin:0;max-width:720px}
+.upcycle-hero .lead{font-size:clamp(19px,2vw,24px);margin:28px 0 32px;max-width:690px}
+.upcycle-hero-image{margin:0}
+.upcycle-hero-image img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;display:block}
+.upcycle-hero-image figcaption{font-size:12px;color:var(--muted);margin-top:10px}
+.interest-list{display:flex;flex-wrap:wrap;gap:8px}
+.interest-list span{font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:7px 12px;background:#fff}
+.upcycle-intro{padding:90px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:.42fr 1fr;gap:70px}
+.upcycle-intro h2,.project-heading h2,.small-projects-heading h2{font-size:clamp(36px,4.5vw,58px);line-height:1.06;letter-spacing:-.045em;font-weight:600;margin:0 0 28px}
+.upcycle-intro p:not(.eyebrow){font-size:18px;color:var(--muted);max-width:780px}
+.upcycle-intro p:last-child{margin-bottom:0}
+.chair-project{padding:110px 0;border-bottom:1px solid var(--line)}
+.project-heading{display:grid;grid-template-columns:1fr .8fr;gap:70px;align-items:end;margin-bottom:50px}
+.project-heading>p{color:var(--muted);font-size:17px;margin:0 0 8px}
+.before-after-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.before-after-grid figure{margin:0}
+.before-after-grid img{display:block;width:100%;height:560px;object-fit:cover;border-radius:16px}
+.before-after-grid figcaption{margin-top:10px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px}
+.before-after-grid figcaption span{color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.process-gallery{background:var(--navy);color:#fff;border-radius:20px;padding:34px;margin-top:54px}
+.process-gallery .eyebrow{color:#72c2c6;margin-bottom:8px}
+.process-gallery-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:24px}
+.process-gallery-head h3{font-size:28px;letter-spacing:-.03em;margin:0}
+.gallery-controls{display:flex;align-items:center;gap:10px}
+.gallery-controls span{font-size:12px;color:#a9bdc5;margin-right:6px}
+.gallery-controls button{width:40px;height:40px;border:1px solid #45606c;background:transparent;color:#fff;border-radius:50%;font-size:18px;cursor:pointer}
+.gallery-controls button:hover{background:#254552}
+.process-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.process-track::-webkit-scrollbar{display:none}
+.process-track figure{flex:0 0 min(70%,690px);margin:0;scroll-snap-align:start}
+.process-track img{display:block;width:100%;height:440px;object-fit:cover;border-radius:12px;background:#203542}
+.process-track figcaption{font-size:12px;color:#b9c8ce;margin-top:9px}
+.small-projects{padding:110px 0}
+.small-projects-heading{display:grid;grid-template-columns:1fr .8fr;column-gap:70px;margin-bottom:60px}
+.small-projects-heading .eyebrow{grid-column:1/-1}
+.small-projects-heading p:last-child{color:var(--muted);font-size:17px;margin:8px 0 0}
+.home-project{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px;padding:48px 0;border-top:1px solid var(--line);align-items:center}
+.home-project-copy>span{font-size:11px;color:var(--muted);letter-spacing:.12em}
+.home-project-copy .eyebrow{margin:28px 0 10px}
+.home-project-copy h3,.textile-note h3{font-size:30px;line-height:1.15;letter-spacing:-.035em;margin:0 0 16px}
+.home-project-copy>p:last-child,.textile-note p:last-child{color:var(--muted);margin:0}
+.home-project-images{display:grid;gap:14px}
+.home-project-images.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.home-project-images img{width:100%;height:420px;object-fit:cover;border-radius:14px;display:block}
+.home-project-images figure{margin:0}
+.home-project-images figcaption{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:8px}
+.vase-image img{height:auto;aspect-ratio:4/3;object-fit:contain;background:#f1f0ee}
+.mirror-project .home-project-images.two{grid-template-columns:.72fr 1.28fr}
+.mirror-project .home-project-images img{height:520px}
+.mirror-project .home-project-images img:first-child{object-fit:contain;background:#f1f0ee}
+.textile-note{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center;padding:48px 0;border-top:1px solid var(--line)}
+.textile-note img{display:block;width:100%;height:430px;object-fit:cover;border-radius:14px}
+@media(max-width:800px){
+  .upcycle-hero{grid-template-columns:1fr;gap:42px;padding:55px 0 75px}
+  .upcycle-hero h1{font-size:50px}
+  .upcycle-hero-image img{aspect-ratio:4/4.5}
+  .upcycle-intro,.project-heading,.small-projects-heading,.home-project,.textile-note{grid-template-columns:1fr;gap:28px}
+  .upcycle-intro,.chair-project,.small-projects{padding:75px 0}
+  .before-after-grid{grid-template-columns:1fr}
+  .before-after-grid img{height:420px}
+  .process-gallery{padding:24px}
+  .process-gallery-head{align-items:flex-start}
+  .process-track figure{flex-basis:88%}
+  .process-track img{height:330px}
+  .small-projects-heading .eyebrow{grid-column:auto}
+  .home-project{padding:42px 0}
+  .home-project-images img{height:300px}
+  .vase-image img{height:auto}
+  .mirror-project .home-project-images img{height:420px}
+  .textile-note img{height:340px}
+}
+@media(max-width:520px){
+  .upcycle-hero h1{font-size:43px}
+  .before-after-grid img{height:340px}
+  .process-gallery-head{display:block}
+  .gallery-controls{margin-top:18px}
+  .process-track img{height:280px}
+  .home-project-images.two{grid-template-columns:1fr}
+  .mirror-project .home-project-images.two{grid-template-columns:1fr}
+  .home-project-images img{height:360px}
+  .vase-image img{height:auto}
+  .mirror-project .home-project-images img:first-child{height:auto}
+}
+@media(prefers-reduced-motion:reduce){.personal-work-link{transition:none}.process-track{scroll-behavior:auto}}

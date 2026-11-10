@@ -3,7 +3,7 @@
 .upcycle-hero h1{font-size:clamp(54px,7vw,88px);line-height:.98;letter-spacing:-.06em;font-weight:600;margin:0;max-width:720px}
 .upcycle-hero .lead{font-size:clamp(19px,2vw,24px);margin:28px 0 32px;max-width:690px}
 .upcycle-hero-image{margin:0}
-.upcycle-hero-image img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:76% center;border-radius:18px;display:block}
+.upcycle-hero-image img{width:100%;height:auto;border-radius:18px;display:block}
 .upcycle-hero-image figcaption{font-size:12px;color:var(--muted);margin-top:10px}
 .interest-list{display:flex;flex-wrap:wrap;gap:8px}
 .interest-list span{font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:7px 12px;background:#fff}
@@ -55,7 +55,7 @@
 @media(max-width:800px){
   .upcycle-hero{grid-template-columns:1fr;gap:42px;padding:55px 0 75px}
   .upcycle-hero h1{font-size:50px}
-  .upcycle-hero-image img{aspect-ratio:4/4.5}
+  .upcycle-hero-image img{height:auto}
   .upcycle-intro,.project-heading,.small-projects-heading,.home-project,.textile-note{grid-template-columns:1fr;gap:28px}
   .upcycle-intro,.chair-project,.small-projects{padding:75px 0}
   .before-after-grid{grid-template-columns:1fr}
